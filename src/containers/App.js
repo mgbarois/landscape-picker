@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Scroll from "../components/Scroll";
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
-import ErrorBoundary from '../compontents/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 // import { robots } from './robots'; // needs to be destructured because not default export
 import "./App.css";

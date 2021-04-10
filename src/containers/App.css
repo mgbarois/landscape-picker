@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Blanka Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Blanka Regular'), url('Blanka-Regular.woff') format('woff');
+  }
+
 .App {
   text-align: center;
 }
@@ -35,4 +42,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+h1 {
+  /* font-family: 'Pacifico', cursive; */
+  font-family: 'Blanka Regular';
+  color:  rgba(10, 255, 243, 1);
+  letter-spacing: 0.15rem;
 }

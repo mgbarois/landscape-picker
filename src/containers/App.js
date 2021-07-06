@@ -11,40 +11,60 @@ import "./App.css";
 const App = () => {
   const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState('');
+  const [themes, setThemes] = useState(["Forest", "Beach", "Ocean", "Desert", "Arctic", "Meadow", "Caves", "Mountain", "Space", "Jungle", "River", "Sky", "Tundra", "Swamp", "Underwater"]);
 
+
+
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users") // fetch is a method on the Window object.
+  //     // It comes with all browsers now: it helps us make requests to servers 
+  //     // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+  //     .then(response => response.json())
+  //     .then(users => {
+  //       console.log("users",users);
+  //       setRobots(users)
+  //     });
+  // }, []); // Add an empty array to simulate only ComponentDidMount (and not ComponentDidUpdate)
+  const onRefreshSel = () => {
+    console.log("refreshing selection");
+    Promise.all(themes.map(theme =>
+      fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({name: theme, url: resp.url}))
+    ))
+    .then(array => setRobots(array))
+    .catch(err => console.log);
+  }
 
   useEffect(() => {
-      fetch("https://jsonplaceholder.typicode.com/users") // fetch is a method on the Window object.
-        // It comes with all browsers now: it helps us make requests to servers 
-        // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-        .then(response => response.json())
-        .then(users => {
-          console.log(users);
-          setRobots(users)});
-  }, []); // Add an empty array to simulate only ComponentDidMount (and not ComponentDidUpdate)
+    Promise.all(themes.map(theme =>
+      fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({name: theme, url: resp.url}))
+    ))
+    .then(array => setRobots(array))
+    .catch(err => console.log);
+  }, [themes]);
+
 
   const onSearchChange = (event) => { // When you create your own methods on a component, you have to use arrow function syntax
-   setSearchField(event.target.value);
+    setSearchField(event.target.value);
   }
 
   const filteredRobots = robots.filter(robot => {
     return robot.name.toLowerCase().includes(searchField.toLowerCase())
   });
 
-    return !robots.length ?  // or :if (robots.length === 0) ... else.. -> 
-      <h1>Loading...</h1> :
-      (
-        <div className="tc">
-          <h1 className="f1">Robofriends</h1>
-          <SearchBox searchChange={onSearchChange} /> {/* have to use "this." because we're inside an object (App)*/}
-          <Scroll>
-            <ErrorBoundary>
-              <CardList robots={filteredRobots} /> {/* get it from the state instead - which contains the filtered robots list*/}
-            </ErrorBoundary>
-          </Scroll>
-        </div>
-      ); //parentheses necessary if you're writing more than one jsx element
-  }
+  return !robots.length ?  // or :if (robots.length === 0) ... else.. -> 
+    <h1 className="tc">Loading...</h1> :
+    (
+      <div className="tc">
+        <h1 className="f1">Landscape Picker</h1>
+        <SearchBox searchChange={onSearchChange} refreshSel={onRefreshSel} /> {/* have to use "this." because we're inside an object (App)*/}
+        {/* <Scroll> */}
+          <ErrorBoundary>
+            <CardList robots={filteredRobots} /> {/* get it from the state instead - which contains the filtered robots list*/}
+          </ErrorBoundary>
+        {/* </Scroll> */}
+      </div>
+    ); //parentheses necessary if you're writing more than one jsx element
+}
 
 export default App;
 //default is used when you're only returning one component.

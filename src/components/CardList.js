@@ -10,9 +10,11 @@ const CardList = ({ robots }) => {
                     return (
                         <Card
                             key={i} // Remember to give a unique key when donig a loop
-                            id={robots[i].id}
+                            // id={robots[i].id}
+                            // name={robots[i].name}
+                            // email={robots[i].email}
                             name={robots[i].name}
-                            email={robots[i].email}
+                            url={robots[i].url}
                         />
                     );
                 })

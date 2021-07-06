@@ -26,21 +26,18 @@ const App = () => {
   //     });
   // }, []); // Add an empty array to simulate only ComponentDidMount (and not ComponentDidUpdate)
   const onRefreshSel = () => {
+    setRobots([]);
     console.log("refreshing selection");
     Promise.all(themes.map(theme =>
-      fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({name: theme, url: resp.url}))
+      fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({ name: theme, url: resp.url }))
     ))
-    .then(array => setRobots(array))
-    .catch(err => console.log);
+      .then(array => setRobots(array))
+      .catch(err => console.log);
   }
 
   useEffect(() => {
-    Promise.all(themes.map(theme =>
-      fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({name: theme, url: resp.url}))
-    ))
-    .then(array => setRobots(array))
-    .catch(err => console.log);
-  }, [themes]);
+    onRefreshSel();
+  }, []);
 
 
   const onSearchChange = (event) => { // When you create your own methods on a component, you have to use arrow function syntax
@@ -51,19 +48,22 @@ const App = () => {
     return robot.name.toLowerCase().includes(searchField.toLowerCase())
   });
 
-  return !robots.length ?  // or :if (robots.length === 0) ... else.. -> 
-    <h1 className="tc">Loading...</h1> :
-    (
-      <div className="tc">
-        <h1 className="f1">Landscape Picker</h1>
-        <SearchBox searchChange={onSearchChange} refreshSel={onRefreshSel} /> {/* have to use "this." because we're inside an object (App)*/}
-        {/* <Scroll> */}
-          <ErrorBoundary>
-            <CardList robots={filteredRobots} /> {/* get it from the state instead - which contains the filtered robots list*/}
-          </ErrorBoundary>
-        {/* </Scroll> */}
-      </div>
-    ); //parentheses necessary if you're writing more than one jsx element
+  return (
+
+    <div className="tc">
+      <h1 className="f1">Landscape Picker</h1>
+      <SearchBox searchChange={onSearchChange} refreshSel={onRefreshSel} />
+      {
+        !robots.length
+          ? (<h1 className="tc">Loading...</h1>) :
+          (
+            < ErrorBoundary >
+              <CardList robots={filteredRobots} />
+            </ErrorBoundary>
+          )
+      }
+    </div >
+  )
 }
 
 export default App;

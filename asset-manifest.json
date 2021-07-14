@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/robofriends/static/css/main.38ee7b32.chunk.css",
-    "main.js": "/robofriends/static/js/main.55cc3e65.chunk.js",
-    "main.js.map": "/robofriends/static/js/main.55cc3e65.chunk.js.map",
-    "runtime-main.js": "/robofriends/static/js/runtime-main.2d6cb54f.js",
-    "runtime-main.js.map": "/robofriends/static/js/runtime-main.2d6cb54f.js.map",
-    "static/css/2.31461e4f.chunk.css": "/robofriends/static/css/2.31461e4f.chunk.css",
-    "static/js/2.4d162bfd.chunk.js": "/robofriends/static/js/2.4d162bfd.chunk.js",
-    "static/js/2.4d162bfd.chunk.js.map": "/robofriends/static/js/2.4d162bfd.chunk.js.map",
-    "static/js/3.45450745.chunk.js": "/robofriends/static/js/3.45450745.chunk.js",
-    "static/js/3.45450745.chunk.js.map": "/robofriends/static/js/3.45450745.chunk.js.map",
-    "index.html": "/robofriends/index.html",
-    "static/css/2.31461e4f.chunk.css.map": "/robofriends/static/css/2.31461e4f.chunk.css.map",
-    "static/css/main.38ee7b32.chunk.css.map": "/robofriends/static/css/main.38ee7b32.chunk.css.map",
-    "static/js/2.4d162bfd.chunk.js.LICENSE.txt": "/robofriends/static/js/2.4d162bfd.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/robofriends/static/media/Blanka-Regular.7cf6d898.woff"
+    "main.css": "/landscape-picker/static/css/main.b47c97d5.chunk.css",
+    "main.js": "/landscape-picker/static/js/main.123ce765.chunk.js",
+    "main.js.map": "/landscape-picker/static/js/main.123ce765.chunk.js.map",
+    "runtime-main.js": "/landscape-picker/static/js/runtime-main.d00771db.js",
+    "runtime-main.js.map": "/landscape-picker/static/js/runtime-main.d00771db.js.map",
+    "static/css/2.31461e4f.chunk.css": "/landscape-picker/static/css/2.31461e4f.chunk.css",
+    "static/js/2.e9324e25.chunk.js": "/landscape-picker/static/js/2.e9324e25.chunk.js",
+    "static/js/2.e9324e25.chunk.js.map": "/landscape-picker/static/js/2.e9324e25.chunk.js.map",
+    "static/js/3.8687e81a.chunk.js": "/landscape-picker/static/js/3.8687e81a.chunk.js",
+    "static/js/3.8687e81a.chunk.js.map": "/landscape-picker/static/js/3.8687e81a.chunk.js.map",
+    "index.html": "/landscape-picker/index.html",
+    "static/css/2.31461e4f.chunk.css.map": "/landscape-picker/static/css/2.31461e4f.chunk.css.map",
+    "static/css/main.b47c97d5.chunk.css.map": "/landscape-picker/static/css/main.b47c97d5.chunk.css.map",
+    "static/js/2.e9324e25.chunk.js.LICENSE.txt": "/landscape-picker/static/js/2.e9324e25.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/landscape-picker/static/media/Blanka-Regular.7cf6d898.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.2d6cb54f.js",
+    "static/js/runtime-main.d00771db.js",
     "static/css/2.31461e4f.chunk.css",
-    "static/js/2.4d162bfd.chunk.js",
-    "static/css/main.38ee7b32.chunk.css",
-    "static/js/main.55cc3e65.chunk.js"
+    "static/js/2.e9324e25.chunk.js",
+    "static/css/main.b47c97d5.chunk.css",
+    "static/js/main.123ce765.chunk.js"
   ]
 }

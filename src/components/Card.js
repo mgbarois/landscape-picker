@@ -1,9 +1,7 @@
 import React from 'react';
 
-// const Card = ({ name, email, id }) => { // Destructure the props right inside of the brackets
-const Card = ({ name, url }) => { // Destructure the props right inside of the brackets
-    // use props.name, props.email, props.id throught the code, or
-    //const { name, email, id } = props;
+const Card = ({ name, url }) => {
+
     const getLargePhoto = (url) => {
         return url
         .replace(/&h=200/, "&h=900")
@@ -16,7 +14,6 @@ const Card = ({ name, url }) => { // Destructure the props right inside of the b
                 <img className="shadow-5" alt='robot' src={url} style={{ width: "200px", height: "200px", borderRadius: "50%" }} />
                 <div>
                     <p className="f3 white">{name}</p>
-                    {/* <p>{email}</p> */}
                 </div>
             </div>
         </a>

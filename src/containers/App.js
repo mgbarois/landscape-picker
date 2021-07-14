@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Scroll from "../components/Scroll";
+// import Scroll from "../components/Scroll";
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import ErrorBoundary from './ErrorBoundary';
 
-// import { robots } from './robots'; // needs to be destructured because not default export
 import "./App.css";
-//In order to use state, we have to use classes
+
 
 const App = () => {
-  const [robots, setRobots] = useState([]);
+  const [landscapes, setLandscapes] = useState([]);
   const [searchField, setSearchField] = useState('');
-  const [themes, setThemes] = useState(["Forest", "Beach", "Ocean", "Desert", "Arctic", "Meadow", "Caves", "Mountain", "Space", "Jungle", "River", "Sky", "Tundra", "Swamp", "Underwater"]);
+  const themes = ["Forest", "Beach", "Ocean", "Desert", "Arctic", "Meadow", "Caves", "Mountain", "Space", "Jungle", "River", "Sky", "Tundra", "Swamp", "Underwater"];
 
 
 
@@ -26,12 +25,12 @@ const App = () => {
   //     });
   // }, []); // Add an empty array to simulate only ComponentDidMount (and not ComponentDidUpdate)
   const onRefreshSel = () => {
-    setRobots([]);
+    setLandscapes([]);
     console.log("refreshing selection");
     Promise.all(themes.map(theme =>
       fetch(`https://source.unsplash.com/200x200/?${theme.toLowerCase()}`).then(resp => ({ name: theme, url: resp.url }))
     ))
-      .then(array => setRobots(array))
+      .then(array => setLandscapes(array))
       .catch(err => console.log);
   }
 
@@ -44,7 +43,7 @@ const App = () => {
     setSearchField(event.target.value);
   }
 
-  const filteredRobots = robots.filter(robot => {
+  const filteredLandscapes = landscapes.filter(robot => {
     return robot.name.toLowerCase().includes(searchField.toLowerCase())
   });
 
@@ -54,11 +53,11 @@ const App = () => {
       <h1 className="f1">Landscape Picker</h1>
       <SearchBox searchChange={onSearchChange} refreshSel={onRefreshSel} />
       {
-        !robots.length
+        !landscapes.length
           ? (<h1 className="tc">Loading...</h1>) :
           (
             < ErrorBoundary >
-              <CardList robots={filteredRobots} />
+              <CardList landscapes={filteredLandscapes} />
             </ErrorBoundary>
           )
       }

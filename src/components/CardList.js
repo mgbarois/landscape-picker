@@ -1,20 +1,20 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ robots }) => {
+const CardList = ({ landscapes }) => {
 
     return (
         <div>
             {
-                robots.map((user, i) => {
+                landscapes.map((user, i) => {
                     return (
                         <Card
                             key={i} // Remember to give a unique key when donig a loop
                             // id={robots[i].id}
                             // name={robots[i].name}
                             // email={robots[i].email}
-                            name={robots[i].name}
-                            url={robots[i].url}
+                            name={landscapes[i].name}
+                            url={landscapes[i].url}
                         />
                     );
                 })
